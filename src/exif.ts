@@ -424,7 +424,7 @@ export class Exif {
             return (
                 _dataView.getUint8(_offset) === 0x38 && _dataView.getUint8(_offset + 1) === 0x42 && _dataView.getUint8(
                     _offset + 2) === 0x49 && _dataView.getUint8(_offset + 3) === 0x4D && _dataView.getUint8(
-                    _offset + 4) === 0x04 && _dataView.getUint8(_offset + 5) === 0x04
+                        _offset + 4) === 0x04 && _dataView.getUint8(_offset + 5) === 0x04
             );
         };
 
@@ -488,7 +488,7 @@ export class Exif {
     }
 
     public static readTags(file: DataView, tiffStart: number, dirStart: number, strings: string[],
-                           bigEnd: boolean): Object {
+        bigEnd: boolean): Object {
         let entries: number = file.getUint16(dirStart, !bigEnd);
         let tags: any = {};
         let entryOffset: number;
@@ -506,7 +506,7 @@ export class Exif {
     }
 
     public static readTagValue(file: any, entryOffset: number, tiffStart: number, dirStart: number,
-                               bigEnd: boolean): any {
+        bigEnd: boolean): any {
         let type: number = file.getUint16(entryOffset + 2, !bigEnd);
         let numValues = file.getUint32(entryOffset + 4, !bigEnd);
         let valueOffset = file.getUint32(entryOffset + 8, !bigEnd) + tiffStart;
@@ -594,7 +594,7 @@ export class Exif {
                     vals = [];
                     for (n = 0; n < numValues; n++) {
                         vals[n] = file.getInt32(valueOffset + 8 * n, !bigEnd) / file.getInt32(valueOffset + 4 + 8 * n,
-                                !bigEnd);
+                            !bigEnd);
                     }
                     return vals;
                 }
@@ -651,29 +651,29 @@ export class Exif {
             for (tag in exifData) {
                 if ({}.hasOwnProperty.call(exifData, tag)) {
                     switch (tag) {
-                        case "LightSource" :
-                        case "Flash" :
-                        case "MeteringMode" :
-                        case "ExposureProgram" :
-                        case "SensingMethod" :
-                        case "SceneCaptureType" :
-                        case "SceneType" :
-                        case "CustomRendered" :
-                        case "WhiteBalance" :
-                        case "GainControl" :
-                        case "Contrast" :
-                        case "Saturation" :
-                        case "Sharpness" :
-                        case "SubjectDistanceRange" :
-                        case "FileSource" :
+                        case "LightSource":
+                        case "Flash":
+                        case "MeteringMode":
+                        case "ExposureProgram":
+                        case "SensingMethod":
+                        case "SceneCaptureType":
+                        case "SceneType":
+                        case "CustomRendered":
+                        case "WhiteBalance":
+                        case "GainControl":
+                        case "Contrast":
+                        case "Saturation":
+                        case "Sharpness":
+                        case "SubjectDistanceRange":
+                        case "FileSource":
                             exifData[tag] = Exif.StringValues[tag][exifData[tag]];
                             break;
-                        case "ExifVersion" :
-                        case "FlashpixVersion" :
+                        case "ExifVersion":
+                        case "FlashpixVersion":
                             exifData[tag] = String.fromCharCode(exifData[tag][0], exifData[tag][1], exifData[tag][2],
                                 exifData[tag][3]);
                             break;
-                        case "ComponentsConfiguration" :
+                        case "ComponentsConfiguration":
                             let compopents = "Components";
                             exifData[tag] = Exif.StringValues[compopents][exifData[tag][0]] + Exif.StringValues[compopents][exifData[tag][1]] + Exif.StringValues[compopents][exifData[tag][2]] + Exif.StringValues[compopents][exifData[tag][3]];
                             break;
@@ -690,7 +690,7 @@ export class Exif {
             for (tag in gpsData) {
                 if ({}.hasOwnProperty.call(gpsData, tag)) {
                     switch (tag) {
-                        case "GPSVersionID" :
+                        case "GPSVersionID":
                             gpsData[tag] = gpsData[tag][0] + "." + gpsData[tag][1] + "." + gpsData[tag][2] + "." + gpsData[tag][3];
                             break;
                         default:

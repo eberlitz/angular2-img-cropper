@@ -1,5 +1,5 @@
-import {Handle, IHandle} from "./handle";
-import {CropperSettings} from "../cropperSettings";
+import { Handle, IHandle } from "./handle";
+import { CropperSettings } from "../cropperSettings";
 
 export interface ICornerMarker extends IHandle {
     horizontalNeighbour: CornerMarker;

@@ -1,7 +1,7 @@
-import {Component, Input, Renderer, ViewChild, ElementRef, Output, EventEmitter, Type} from "@angular/core";
-import {ImageCropper} from "./imageCropper";
-import {CropperSettings} from "./cropperSettings";
-import {Exif} from "./exif";
+import { Component, Input, Renderer, ViewChild, ElementRef, Output, EventEmitter, Type } from "@angular/core";
+import { ImageCropper } from "./imageCropper";
+import { CropperSettings } from "./cropperSettings";
+import { Exif } from "./exif";
 
 @Component({
     selector: "img-cropper", template: `

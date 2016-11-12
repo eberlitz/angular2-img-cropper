@@ -1,4 +1,4 @@
-import {CropperDrawSettings} from "./cropperDrawSettings";
+import { CropperDrawSettings } from "./cropperDrawSettings";
 
 export interface ICropperSettings {
     canvasWidth?: number;

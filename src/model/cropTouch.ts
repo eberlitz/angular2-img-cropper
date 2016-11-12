@@ -1,5 +1,5 @@
-import {DragMarker} from "./dragMarker";
-import {CornerMarker} from "./cornerMarker";
+import { DragMarker } from "./dragMarker";
+import { CornerMarker } from "./cornerMarker";
 
 export class CropTouch {
 
